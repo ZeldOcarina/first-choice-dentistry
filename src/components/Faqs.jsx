@@ -8,22 +8,33 @@ const StyledFaqs = styled.section`
   ${({ noPaddingTop }) => {
     return noPaddingTop && "padding-top: 0;"
   }}
+
+  .faqs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    max-width: 80%;
+    margin: 0 auto;
+  }
 `
 
 function Faqs({ faqs, superheading, heading, subheading, noPaddingTop }) {
   return (
-    <StyledFaqs noPaddingTop={noPaddingTop}>
-      <div className="container">
-        <IntroSection
-          superheading={superheading}
-          heading={heading}
-          subheading={subheading}
-          noPaddingTop={noPaddingTop}
-        ></IntroSection>
-        {faqs.map(({ id, data: { question, answer } }) => (
-          <FaqItem {...{ question, answer }} key={id} />
-        ))}
-      </div>
+    <StyledFaqs noPaddingTop={noPaddingTop} id="faq">
+      <>
+        <div className="container">
+          <IntroSection
+            superheading={superheading}
+            heading={heading}
+            subheading={subheading}
+            noPaddingTop={noPaddingTop}
+          ></IntroSection>
+        </div>
+        <div className="faqs-container">
+          {faqs.map(({ id, data: { Heading: question, Copy: answer } }) => (
+            <FaqItem {...{ question, answer }} key={id} />
+          ))}
+        </div>
+      </>
     </StyledFaqs>
   )
 }

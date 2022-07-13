@@ -12,7 +12,7 @@ const TextSection = ({ superheading, heading, subheading, copy, columns }) => {
   const { isPhonePort } = useContext(AppContext)
 
   return (
-    <StyledTextSection>
+    <StyledTextSection id="about">
       <div className="container">
         <IntroSection
           superheading={superheading}

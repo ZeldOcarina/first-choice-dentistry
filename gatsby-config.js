@@ -7,7 +7,9 @@ require("dotenv").config({
 const EXCLUDED_PATHS = []
 
 module.exports = {
-  //siteMetadata,
+  siteMetadata: {
+    siteUrl: `https://www.gatsbyjs.com`,
+  },
   plugins: [
     `gatsby-plugin-no-sourcemaps`,
     {
@@ -26,12 +28,21 @@ module.exports = {
         apiKey: process.env.AIRTABLE_API_KEY,
         concurrency: 5,
         tables: [
-          // {
-          //   baseId: process.env.AIRTABLE_BASE_ID,
-          //   tableName: `Config`,
-          //   mapping: { Attachments: `fileNode` },
-          //   tableId: `tblSs9vRUTUExiBFJ`
-          // },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            mapping: { File: `fileNode` },
+            tableName: `Config`
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            mapping: { Media: `fileNode` },
+            tableName: `Home`
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            mapping: { Media: `fileNode` },
+            tableName: `Footer (Global)`
+          },
         ],
       },
     },

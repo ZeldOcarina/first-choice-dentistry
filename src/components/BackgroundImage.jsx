@@ -21,7 +21,9 @@ const StyledBackgroundImage = styled.div`
           position: absolute;
           top: 0;
           left: 0;
-          background-image: linear-gradient(${background}, ${background});
+          background-image: ${background.length && background.length > 0
+            ? css`linear-gradient(${background[0]}, ${background[1]})`
+            : css`linear-gradient(${background}, ${background})`};
         `
       }
     }}

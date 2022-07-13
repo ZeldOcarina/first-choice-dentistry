@@ -5,11 +5,12 @@ import { css } from "styled-components"
 
 const StyledCardsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, 480px);
-  max-width: 90%;
+  grid-template-columns: repeat(auto-fit, 500px);
+  max-width: 100%;
   margin: 0 auto;
-  column-gap: var(--gutter);
-  row-gap: 8rem;
+  column-gap: ${({ columnGap }) =>
+    columnGap ? columnGap : css`var(--gutter)`};
+  row-gap: ${({ rowGap }) => (rowGap ? rowGap : css`8rem`)};
   justify-content: center;
 
   ${respond(
@@ -32,8 +33,12 @@ const StyledCardsContainer = styled.div`
   )}
 `
 
-const CardsContainer = ({ children }) => {
-  return <StyledCardsContainer>{children}</StyledCardsContainer>
+const CardsContainer = ({ children, rowGap, columnGap }) => {
+  return (
+    <StyledCardsContainer rowGap={rowGap} columnGap={columnGap}>
+      {children}
+    </StyledCardsContainer>
+  )
 }
 
 export default CardsContainer

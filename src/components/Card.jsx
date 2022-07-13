@@ -1,12 +1,16 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled, { css } from "styled-components"
 import respond from "../styles/abstracts/mediaqueries"
+import BackgroundImage from "./BackgroundImage"
 
 const StyledCard = styled.article`
   background-color: var(--white);
   padding: 8rem 4rem ${({ link }) => (link ? "10rem" : "8rem")} 4rem;
   position: relative;
+  color: var(--white);
+  font-weight: 300;
+  min-height: 65rem;
 
   ${respond(
     "big-desktop",
@@ -16,29 +20,10 @@ const StyledCard = styled.article`
     `
   )}
 
-  .icon-container {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--background-dark);
-    padding: 1rem;
-    border-radius: 50%;
-    width: 12rem;
-    height: 12rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  img {
-    width: 40%;
-  }
-
   h5 {
-    color: var(--color-tertiary);
+    color: var(--white);
     text-transform: uppercase;
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     letter-spacing: 1px;
     text-align: center;
     margin-bottom: var(--gutter);
@@ -78,17 +63,66 @@ const StyledCard = styled.article`
       `
     )}
   }
+
+  .text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 85%;
+
+    h5 {
+      font-weight: 500;
+    }
+  }
 `
 
-const Card = ({ copy, heading, icon, linkLabel, link }) => {
+const Card = ({ copy, heading, image, alternativeText, linkLabel, link }) => {
+  const [alphaValue, setAlphaValue] = useState(0)
+  const [timer, setTimer] = useState(null)
+
+  useEffect(() => {
+    if (alphaValue >= 0.6) {
+      clearInterval(timer)
+      setTimer(null)
+    }
+    return () => {}
+  }, [alphaValue])
+
+  const handleMouseEnter = () => {
+    const timer = setInterval(() => {
+      setAlphaValue(prev => prev + 0.025)
+    }, 10)
+    setTimer(timer)
+  }
+  const handleMouseLeave = () => {
+    setAlphaValue(0)
+    clearInterval(timer)
+    setTimer(null)
+  }
+
   return (
-    <StyledCard link={link}>
-      <div className="icon-container">
-        <img src={icon?.localFiles[0]?.publicURL} alt={heading} />
+    <StyledCard
+      link={link}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className="text-container">
+        <h5>{heading}</h5>
+        {alphaValue >= 0.6 && <p>{copy}</p>}
       </div>
 
-      <h5>{heading}</h5>
-      <p>{copy}</p>
+      <BackgroundImage
+        image={image}
+        alt={alternativeText}
+        isPlainImg
+        overlay={[
+          `rgba(39, 55, 112, ${alphaValue})`,
+          `rgba(0, 14, 62, ${alphaValue})`,
+        ]}
+      />
+
       {link && (
         <Link className="link" to={link}>
           {linkLabel}

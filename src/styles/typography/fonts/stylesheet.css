@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-BlkIt.eot');
+    src: local('Uniform Pro Extra Condensed Black Italic'), local('UniformProXcon-BlkIt'),
+        url('UniformProXcon-BlkIt.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-BlkIt.woff2') format('woff2'),
+        url('UniformProXcon-BlkIt.woff') format('woff'),
+        url('UniformProXcon-BlkIt.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-Blk.eot');
+    src: local('Uniform Pro Extra Condensed Black'), local('UniformProXcon-Blk'),
+        url('UniformProXcon-Blk.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-Blk.woff2') format('woff2'),
+        url('UniformProXcon-Blk.woff') format('woff'),
+        url('UniformProXcon-Blk.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-BldIt.eot');
+    src: local('Uniform Pro Extra Condensed Bold Italic'), local('UniformProXcon-BldIt'),
+        url('UniformProXcon-BldIt.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-BldIt.woff2') format('woff2'),
+        url('UniformProXcon-BldIt.woff') format('woff'),
+        url('UniformProXcon-BldIt.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-Bld.eot');
+    src: local('Uniform Pro Extra Condensed Bold'), local('UniformProXcon-Bld'),
+        url('UniformProXcon-Bld.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-Bld.woff2') format('woff2'),
+        url('UniformProXcon-Bld.woff') format('woff'),
+        url('UniformProXcon-Bld.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-RegIt.eot');
+    src: local('Uniform Pro Extra Condensed Italic'), local('UniformProXcon-RegIt'),
+        url('UniformProXcon-RegIt.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-RegIt.woff2') format('woff2'),
+        url('UniformProXcon-RegIt.woff') format('woff'),
+        url('UniformProXcon-RegIt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-LgtIt.eot');
+    src: local('Uniform Pro Extra Condensed Light Italic'), local('UniformProXcon-LgtIt'),
+        url('UniformProXcon-LgtIt.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-LgtIt.woff2') format('woff2'),
+        url('UniformProXcon-LgtIt.woff') format('woff'),
+        url('UniformProXcon-LgtIt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-Thn.eot');
+    src: local('Uniform Pro Extra Condensed Thin'), local('UniformProXcon-Thn'),
+        url('UniformProXcon-Thn.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-Thn.woff2') format('woff2'),
+        url('UniformProXcon-Thn.woff') format('woff'),
+        url('UniformProXcon-Thn.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-Reg.eot');
+    src: local('Uniform Pro Extra Condensed'), local('UniformProXcon-Reg'),
+        url('UniformProXcon-Reg.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-Reg.woff2') format('woff2'),
+        url('UniformProXcon-Reg.woff') format('woff'),
+        url('UniformProXcon-Reg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-ThnIt.eot');
+    src: local('Uniform Pro Extra Condensed Thin Italic'), local('UniformProXcon-ThnIt'),
+        url('UniformProXcon-ThnIt.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-ThnIt.woff2') format('woff2'),
+        url('UniformProXcon-ThnIt.woff') format('woff'),
+        url('UniformProXcon-ThnIt.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed Ultra';
+    src: url('UniformProXcon-Ult.eot');
+    src: local('Uniform Pro Extra Condensed Ultra'), local('UniformProXcon-Ult'),
+        url('UniformProXcon-Ult.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-Ult.woff2') format('woff2'),
+        url('UniformProXcon-Ult.woff') format('woff'),
+        url('UniformProXcon-Ult.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed Ultra';
+    src: url('UniformProXcon-UltIt.eot');
+    src: local('Uniform Pro Extra Condensed Ultra Italic'), local('UniformProXcon-UltIt'),
+        url('UniformProXcon-UltIt.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-UltIt.woff2') format('woff2'),
+        url('UniformProXcon-UltIt.woff') format('woff'),
+        url('UniformProXcon-UltIt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-MedIt.eot');
+    src: local('Uniform Pro Extra Condensed Medium Italic'), local('UniformProXcon-MedIt'),
+        url('UniformProXcon-MedIt.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-MedIt.woff2') format('woff2'),
+        url('UniformProXcon-MedIt.woff') format('woff'),
+        url('UniformProXcon-MedIt.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-Med.eot');
+    src: local('Uniform Pro Extra Condensed Medium'), local('UniformProXcon-Med'),
+        url('UniformProXcon-Med.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-Med.woff2') format('woff2'),
+        url('UniformProXcon-Med.woff') format('woff'),
+        url('UniformProXcon-Med.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url('UniformProXcon-Lgt.eot');
+    src: local('Uniform Pro Extra Condensed Light'), local('UniformProXcon-Lgt'),
+        url('UniformProXcon-Lgt.eot?#iefix') format('embedded-opentype'),
+        url('UniformProXcon-Lgt.woff2') format('woff2'),
+        url('UniformProXcon-Lgt.woff') format('woff'),
+        url('UniformProXcon-Lgt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+

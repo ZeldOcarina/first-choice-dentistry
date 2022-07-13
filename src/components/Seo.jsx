@@ -11,6 +11,8 @@ const Seo = ({ title, description, language }) => {
   return (
     <Helmet htmlAttributes={{ lang: language || "en" }}>
       <title>Gatsby AirTable Starter</title>
+      <link rel="stylesheet" href="https://use.typekit.net/dzp2jss.css" />
+
       {/* <title>{title || metaTitle}</title>
       <meta name="description" content={description || metaDescription} />
       <meta name="webmaster" content="Mattia Rasulo" />
@@ -29,18 +31,6 @@ const Seo = ({ title, description, language }) => {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:width" content="630" />
       <meta property="og:image:type" content="image/png" />
-
-      {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> */}
-      {/* <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin="true"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel&family=Poppins:ital,wght@0,400;0,600;0,700;1,600&family=Work+Sans:wght@600&display=swap"
-        rel="stylesheet"
-      /> */}
-      {/* <link rel="stylesheet" href="https://use.typekit.net/nxf4ohg.css" /> */}
       {/* FAVICONS */}
       <link
         rel="apple-touch-icon"

@@ -98,7 +98,7 @@ const FooterSocialIcons = ({ socialLinks: { socialLinks } }) => {
           </a>
         </div>
       )}
-      {twitterLink.data.Value && (
+      {twitterLink?.data.Value && (
         <div>
           <a href={twitterLink.data.Value}>
             <FaTwitter

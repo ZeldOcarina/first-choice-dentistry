@@ -11,6 +11,7 @@ export default createGlobalStyle`
 html {
   overflow-x: hidden;
   font-size: 10px;
+  scroll-behavior: smooth;
 
   ${respond(
   "4k-tv",
@@ -53,6 +54,8 @@ ${respond("big-desktop", css`
 
 h1 {
   font-size: var(--big-title);
+  font-family: var(--title-font);
+  font-weight: 300;
 }
 
 h1,
@@ -62,7 +65,7 @@ h4,
 h5,
 h6 {
   font-family: var(--title-font);
-  font-weight: bold;
+  font-weight: 300;
   color: var(--black);
 
   ${respond(

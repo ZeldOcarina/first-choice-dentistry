@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-airtable-starter",
-  "private": false,
-  "description": "A new Gatsby website starter with AirTable integration",
+  "name": "first-choice-dentistry",
+  "private": true,
+  "description": "A new Gatsby website for First Choice Dentistry",
   "version": "0.1.0",
   "author": "Mattia Rasulo <mattia@monarchy.io>",
   "engines": {
@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.14.3",
+    "@img-comparison-slider/react": "^7.6.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "@popperjs/core": "^2.10.2",
+    "add": "^2.0.6",
     "axios": "^0.27.2",
+    "babel-eslint": "^10.0.0",
     "babel-plugin-styled-components": "^2.0.7",
     "bootstrap": "^5.1.3",
     "dotenv": "^16.0.1",
@@ -44,16 +48,24 @@
     "react-spinners": "^0.13.3",
     "remark-gfm": "^3.0.1",
     "styled-components": "^5.3.5",
-    "swiper": "^8.2.5"
+    "swiper": "^8.2.5",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-0",
     "@emotion/babel-plugin": "^11.9.2",
+    "@types/react": "^18.0.15",
     "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.19.0",
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
     "npm-run-all": "^4.1.5",
+    "parse-path": "^5.0.0",
     "prettier": "^2.7.1",
-    "sass": "^1.53.0"
+    "react-is": "16.8.0",
+    "sass": "^1.53.0",
+    "typescript": "^4.7.4",
+    "webpack": "^5.0.0"
   },
   "keywords": [
     "gatsby"
@@ -75,5 +87,6 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "license": "UNLICENSED"
 }

@@ -11,6 +11,9 @@ import GallerySection from "./GallerySection"
 import Map from "../components/Map"
 import FooterLogoStripe from "../components/FooterLogoStripe"
 import MonarchyStripe from "../components/MonarchyStripe"
+import ImagesBlock from "../components/ImagesBlock"
+import TemporaryNavbar from "./TemporaryNavbar"
+import TemporaryMobileNavbar from "./TemporaryMobileNavbar"
 
 function organizeMenu(categoriesData) {
   const categories = new Set()
@@ -55,13 +58,31 @@ const Layout = ({ children, innerLayout }) => {
   //   quickLinksData: { quickLinksData },
   // } = useStaticQuery(query)
 
+  const {
+    imagesTitleData: { imagesTitleData },
+    imagesItemsData: { imagesItemsData },
+    locationData,
+    socialLinks,
+    lightLogoData: { lightLogoData },
+  } = useStaticQuery(query)
+
   const { alertState, setAlertState } = useContext(AppContext)
+
+  const temporaryLinks = [
+    { text: "SERVICES", link: "#services" },
+    { text: "ABOUT", link: "#about" },
+    { text: "BEFORE AND AFTER", link: "#before-and-after" },
+    { text: "FAQ", link: "#faq" },
+    { text: "ORGANIZATIONS", link: "#organizations" },
+  ]
 
   // const lat = nodes?.find(node => node?.data?.Label === "Latitude")?.data?.Value
   // const long = nodes?.find(node => node?.data?.Label === "Longitude")?.data
   //   ?.Value
 
   // const menuData = organizeMenu(categoriesData)
+
+  console.log(lightLogoData)
 
   return (
     <>
@@ -70,24 +91,35 @@ const Layout = ({ children, innerLayout }) => {
         tel={telData.Value}
         state={stateData.Value}
         city={cityData.Value}
+      /> */}
+
+      {/* <Navbar innerLayout={innerLayout} menuData={menuData} /> */}
+      <TemporaryNavbar
+        logo={lightLogoData.File.localFiles[0].publicURL}
+        links={temporaryLinks}
       />
 
-      <Navbar innerLayout={innerLayout} menuData={menuData} />
-
       {children}
-      <GallerySection />
+      <ImagesBlock
+        superheading={imagesTitleData.Heading}
+        heading={imagesTitleData.Subheading}
+        images={imagesItemsData}
+      />
+      <Footer
+        // quickLinks={quickLinksData}
+        locationData={locationData}
+        socialLinks={socialLinks}
+      />
+      <MonarchyStripe />
+      <TemporaryMobileNavbar links={temporaryLinks} />
+      {/*<GallerySection />
       <Map lat={lat} long={long} mapName="map" />
       <FooterLogoStripe
         phone={phoneData.Value}
         tel={telData.Value}
         logo={logoData.Attachments.localFiles[0].publicURL}
       />
-      <Footer
-        quickLinks={quickLinksData}
-        locationData={locationData}
-        socialLinks={socialLinks}
-      />
-      <MonarchyStripe />
+      
       <MobileNavbar menuData={menuData} />
 
       <AlertMessage
@@ -99,6 +131,77 @@ const Layout = ({ children, innerLayout }) => {
     </>
   )
 }
+
+const query = graphql`
+  {
+    imagesTitleData: airtable(
+      table: { eq: "Footer (Global)" }
+      data: { Block: { eq: "Images" } }
+    ) {
+      imagesTitleData: data {
+        Heading
+        Subheading
+      }
+    }
+    imagesItemsData: allAirtable(
+      filter: {
+        table: { eq: "Footer (Global)" }
+        data: { Block: { eq: "ImagesItem" } }
+      }
+    ) {
+      imagesItemsData: nodes {
+        id
+        data {
+          Media {
+            localFiles {
+              publicURL
+            }
+          }
+          AltText
+        }
+      }
+    }
+    locationData: allAirtable(
+      filter: {
+        data: {
+          Label: { regex: "/State|City|Phone|Tel:|Address|Weekdays|Weekends/" }
+        }
+      }
+    ) {
+      nodes {
+        data {
+          Value
+          Label
+        }
+      }
+    }
+    socialLinks: allAirtable(
+      filter: {
+        table: { eq: "Config" }
+        data: { Category: { eq: "Social Links" } }
+      }
+    ) {
+      socialLinks: nodes {
+        data {
+          Label
+          Value
+        }
+      }
+    }
+    lightLogoData: airtable(
+      table: { eq: "Config" }
+      data: { Category: { eq: "Media" }, Label: { eq: "Logo Light" } }
+    ) {
+      lightLogoData: data {
+        File {
+          localFiles {
+            publicURL
+          }
+        }
+      }
+    }
+  }
+`
 
 // const query = graphql`
 //   {

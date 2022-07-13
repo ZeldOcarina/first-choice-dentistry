@@ -99,17 +99,17 @@ const Footer = ({ quickLinks, locationData, socialLinks }) => {
   //   .Value
   const address = locationData.nodes.find(item => item.data.Label === "Address")
     .data.Value
-  const weekdays = locationData.nodes.find(
-    item => item.data.Label === "Weekdays"
-  ).data.Value
-  const weekends = locationData.nodes.find(
-    item => item.data.Label === "Weekends"
-  ).data.Value
+  // const weekdays = locationData.nodes.find(
+  //   item => item.data.Label === "Weekdays"
+  // )?.data?.Value
+  // const weekends = locationData.nodes.find(
+  //   item => item.data.Label === "Weekends"
+  // ).data.Value
 
   return (
     <StyledFooter>
       <div className="container">
-        <div className="col-1">
+        {/* <div className="col-1">
           <h5>QUICK LINKS</h5>
           {quickLinks.map((quickLink, i) => {
             return (
@@ -118,12 +118,10 @@ const Footer = ({ quickLinks, locationData, socialLinks }) => {
               </Link>
             )
           })}
-        </div>
+        </div> */}
         <div className="col-2">
           <h5>LOCATION</h5>
           <a href={`tel:${telLink}`}>{phoneString}</a>
-          <p>{weekdays}</p>
-          <p>{weekends}</p>
           <p>{address.split("107")[0]}</p>
           <p>{address.split("107")[1]}</p>
           <p>&copy; {new Date().getFullYear()} NCUC. All Rights Reserved.</p>

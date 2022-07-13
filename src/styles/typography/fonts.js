@@ -1,11 +1,19 @@
 import { createGlobalStyle } from "styled-components"
 
-// import thinSfPro from "../../fonts/SF-Pro-Display-Thin.otf"
+import lightFont from "./fonts/UniformProXcon-Thn.ttf"
+import boldFont from "./fonts/UniformProXcon-Bld.ttf"
 
 export default createGlobalStyle`
-    /* @font-face {
-        font-family: "SF Pro Display";
-        src: url(${thinSfPro}) format("opentype");
-        font-weight: 200;
-    } */
+    @font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url(${boldFont}) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+    @font-face {
+    font-family: 'Uniform Pro Extra Condensed';
+    src: url(${lightFont}) format('truetype');
+    font-weight: light;
+    font-style: normal;
+}
 `

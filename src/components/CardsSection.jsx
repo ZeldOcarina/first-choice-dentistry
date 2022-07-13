@@ -15,7 +15,7 @@ const StyledCardsSection = styled.section`
 
 const CardsSection = ({ superheading, heading, subheading, cards }) => {
   return (
-    <StyledCardsSection>
+    <StyledCardsSection id="services">
       <div className="container">
         <IntroSection
           superheading={superheading}
@@ -23,10 +23,17 @@ const CardsSection = ({ superheading, heading, subheading, cards }) => {
           subheading={subheading}
         />
       </div>
-
-      <CardsContainer>
+      <CardsContainer rowGap="0" columnGap="0">
         {cards.map(({ id, data }) => {
-          return <Card key={id} {...data} />
+          return (
+            <Card
+              key={id}
+              heading={data.Heading}
+              copy={data.Copy}
+              image={data.Media.localFiles[0].publicURL}
+              alternativeText={data.AlternativeText}
+            />
+          )
         })}
       </CardsContainer>
     </StyledCardsSection>

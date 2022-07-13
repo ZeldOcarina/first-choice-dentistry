@@ -7,6 +7,9 @@ import respond from "../styles/abstracts/mediaqueries"
 import AppContext from "../context/AppContext"
 import Button from "../components/Button"
 
+import { hexToRGB } from "../helpers/helpers"
+import { Colors } from "../styles/abstracts/abstracts"
+
 const StyledMobileNavbar = styled.div`
   width: 100vw;
   position: fixed;
@@ -14,7 +17,7 @@ const StyledMobileNavbar = styled.div`
   top: 0;
   left: 0;
   z-index: 200;
-  background-color: rgba(22, 176, 216, 0.96);
+  background-color: ${hexToRGB(Colors.colorSecondary, 0.96)};
   transform: translateX(200vw);
   transition: all 0.3s ease-in-out;
   overflow: scroll;

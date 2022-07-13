@@ -1,16 +1,17 @@
 import { createGlobalStyle } from "styled-components"
+import { graphql } from "gatsby"
 
 export const Colors = {
   bodyBackground: "#FFFFFF",
-  backgroundDark: "#EDEFEF",
-  bodyColor: "#6B6E7E",
-  colorPrimary: "#2B3990",
-  colorPrimary700: "#222741",
-  colorSecondary: "#16B0D8",
-  colorSecondary200: "#AFDFE4",
-  colorTertiary: "#EF4136",
-  grey: "#707070",
-  grey500: "#6B6E7E",
+  backgroundDark: "#e8e8e8",
+  bodyColor: "#272727",
+  colorPrimary: "#273770",
+  colorPrimary700: "#000E3E",
+  colorSecondary: "#187918",
+  colorSecondary200: "#006000",
+  colorTertiary: "#475D8D",
+  grey: "#666666",
+  grey500: "#9A9A9A",
   black: "#000000",
   white: "#ffffff",
 }
@@ -37,8 +38,8 @@ export default createGlobalStyle`
     --section-gutter: 6rem;
 
     //FONT FAMILY
-    --title-font: "SF Pro Display", sans-serif;
-    --body-font: "SF Pro Display", sans-serif;
+    --title-font: 'Uniform Pro Extra Condensed', sans-serif;
+    --body-font: "arial narrow", ubuntu, sans-serif;
     --bold: 700;
 
     // FONT-SIZES
