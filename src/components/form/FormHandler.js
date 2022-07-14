@@ -14,7 +14,6 @@ export default class FormHandler {
         if (!this.formData.last_name.value) this.errors = { ...this.errors, last_name: "Last name is required" };
         if (!this.formData.email.value) this.errors = { ...this.errors, email: "Email is required" };
         if (!this.formData.phone_number.value) this.errors = { ...this.errors, phone_number: "Phone number is required" };
-        if (!this.formData.visit_type.value) this.errors = { ...this.errors, visit_type: "Please let us know the kind of visit you'd like to get." };
         if (!this.formData.service.value) this.errors = { ...this.errors, service: "Please select what service you are interested in." };
 
         // CHECK EMAIL IS VALID

@@ -82,8 +82,6 @@ const Layout = ({ children, innerLayout }) => {
 
   // const menuData = organizeMenu(categoriesData)
 
-  console.log(lightLogoData)
-
   return (
     <>
       {/* <LocationBanner

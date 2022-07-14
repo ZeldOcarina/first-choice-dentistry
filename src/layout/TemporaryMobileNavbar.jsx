@@ -92,7 +92,6 @@ const TemporaryMobileNavbar = ({ links }) => {
     <StyledTemporaryMobileNavbar open={isMobileMenuOpen}>
       <ul className="mobile-navbar__top-ul">
         {links.map((link, i) => {
-          console.log(link)
           return (
             <li className="mobile-navbar__top-li" key={i}>
               <a

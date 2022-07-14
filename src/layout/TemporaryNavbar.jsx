@@ -12,7 +12,7 @@ const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   z-index: 300;
-  height: 8rem;
+  height: 10rem;
   font-size: 1.6rem;
   transition: all 0.3s ease-in-out;
   background-color: transparent;
@@ -109,7 +109,7 @@ const Wrapper = styled.nav`
   }
 
   .links-container {
-    display: none;
+    display: block;
     gap: 2.5rem;
     align-items: center;
     height: 100%;
@@ -215,6 +215,16 @@ const Wrapper = styled.nav`
     margin: 0;
     padding: 0;
   }
+
+  .button {
+    margin-right: 15rem;
+    cursor: pointer;
+    background-color: var(--color-secondary);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    padding: 1.5rem 3rem;
+  }
 `
 
 const TemporaryNavbar = ({ innerPage, innerLayout, logo }) => {
@@ -244,17 +254,10 @@ const TemporaryNavbar = ({ innerPage, innerLayout, logo }) => {
               ? "links-container links-container--dark"
               : "links-container"
           }
-        >
-          <a className="nav-link" href="#ciao">
-            CIAO
-          </a>
-          <a className="nav-link" href="#ciao">
-            CIAO
-          </a>
-          <a className="nav-link" href="#ciao">
-            CIAO
-          </a>
-        </div>
+        ></div>
+        <Link className="button" to="/contact-us">
+          Contact Us
+        </Link>
         <GiHamburgerMenu
           className="mobile-menu-activator"
           onClick={() => {

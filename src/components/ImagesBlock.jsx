@@ -22,7 +22,6 @@ const StyledImagesBlock = styled.section`
 `
 
 const ImagesBlock = ({ heading, subheading, superheading, images }) => {
-  console.log(images)
   return (
     <StyledImagesBlock id="organizations">
       <IntroSection

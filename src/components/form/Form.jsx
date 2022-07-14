@@ -9,13 +9,12 @@ import StyledForm from "./formStyles"
 import FormHandler from "./FormHandler"
 import PuffLoader from "react-spinners/PuffLoader"
 
-const Form = ({ title, cta }) => {
+const Form = ({ title, cta, serviceItems }) => {
   const initialState = {
     first_name: { value: "", error: "" },
     last_name: { value: "", error: "" },
     email: { value: "", error: "" },
     phone_number: { value: "", country_code: "", error: "" },
-    visit_type: { value: "", error: "" },
     service: { value: "", error: "" },
     message: { value: "", error: "" },
     privacy_accepted: { value: false, error: "" },
@@ -25,10 +24,6 @@ const Form = ({ title, cta }) => {
   const [submitted, setIsSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [formState, setFormState] = useState(initialState)
-
-  // useEffect(() => {
-  //   console.log(formState)
-  // }, [formState])
 
   function handleInputChange(e, type) {
     if (type) {
@@ -161,22 +156,6 @@ const Form = ({ title, cta }) => {
       </div>
       <div className="input-container">
         <select
-          name="visit_type"
-          id="visit_type"
-          onChange={handleInputChange}
-          value={formState?.visit_type?.value}
-          className={formState?.visit_type?.error ? "error" : ""}
-        >
-          <option value="">
-            Do you prefer an in person or a virtual visit?
-          </option>
-          <option value="in_person">In Person Visit</option>
-          <option value="virtual">Telemedicine Virtual Visit</option>
-        </select>
-        <span className="error-message">{formState?.visit_type?.error}</span>
-      </div>
-      <div className="input-container">
-        <select
           name="service"
           id="service"
           onChange={handleInputChange}
@@ -184,9 +163,12 @@ const Form = ({ title, cta }) => {
           className={formState?.service?.error ? "error" : ""}
         >
           <option value="">What service are you interested in?</option>
-          <option value="illness_or_injury">Illness or Injury</option>
-          <option value="physical_testing">Physical Testing</option>
-          <option value="covid_testing">COVID Testing</option>
+          {serviceItems.map((item, i) => (
+            <option key={i} value={item}>
+              {item}
+            </option>
+          ))}
+          <option value="other">Other</option>
         </select>
         <span className="error-message">{formState?.service?.error}</span>
       </div>

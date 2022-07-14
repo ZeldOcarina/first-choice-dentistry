@@ -98,6 +98,7 @@ position: relative;
   }
 
   button {
+    margin-top: 1.5rem;
     border: none;
     background-color: var(--color-secondary);
     font-family: var(--title-font);
