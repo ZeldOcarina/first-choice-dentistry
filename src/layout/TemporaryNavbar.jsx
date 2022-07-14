@@ -226,7 +226,7 @@ const Wrapper = styled.nav`
   }
 
   .button {
-    margin-right: 15rem;
+    margin-right: 8rem;
 
     ${respond(
       1280,
@@ -253,7 +253,7 @@ const Wrapper = styled.nav`
       `
     )}
     ${respond(
-      500,
+      750,
       css`
         display: none;
       `

@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { /*useContext,*/ useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 //import { graphql, Link, useStaticQuery } from "gatsby"
 import respond from "../styles/abstracts/mediaqueries"
 //import { GiHamburgerMenu } from "react-icons/gi"
 
-import AppContext from "../context/AppContext"
+//import AppContext from "../context/AppContext"
 
 //import CategoryItem from "../components/CategoryItem"
 
@@ -236,8 +236,8 @@ const Wrapper = styled.nav`
 
 const Navbar = ({ innerPage, innerLayout, menuData }) => {
   const [isNavbarScrolled, setIsNavbarScrolled] = useState(false)
-  const { isMobileMenuOpen, setIsMobileMenuOpen, isBigLaptop } =
-    useContext(AppContext)
+  // const { isMobileMenuOpen, setIsMobileMenuOpen, isBigLaptop } =
+  //   useContext(AppContext)
   //const { params } = useContext(LocationContext)
   //const { logo } = useStaticQuery(query)
 

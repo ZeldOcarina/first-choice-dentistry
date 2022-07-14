@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components"
-import { graphql } from "gatsby"
 
 export const Colors = {
   bodyBackground: "#FFFFFF",

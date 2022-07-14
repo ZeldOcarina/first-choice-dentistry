@@ -1,30 +1,26 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled, { css } from "styled-components"
+import { graphql } from "gatsby"
 
 import respond from "../styles/abstracts/mediaqueries"
-
-//import backgroundImage from "../images/hero.png"
-
-import AppContext from "../context/AppContext"
-
 import Layout from "../layout/Layout"
-import Seo from "../components/Seo"
+import BackgroundImage from "../components/BackgroundImage"
+
+import { hexToRGB } from "../helpers/helpers"
+import { Colors } from "../styles/abstracts/abstracts"
 
 const StyledThankYou = styled.main`
   .thank-you-container {
-    background-image: linear-gradient(
-      to right,
-      rgba(43, 57, 144, 0.73),
-      rgba(43, 57, 144, 0.73)
-    );
-
     padding: 0;
     margin: 0;
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .container {
-      min-height: 88vh;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -43,7 +39,7 @@ const StyledThankYou = styled.main`
       text-transform: uppercase;
       color: var(--white);
       text-align: center;
-      font-weight: 300;
+      font-weight: 700;
     }
 
     p {
@@ -56,27 +52,64 @@ const StyledThankYou = styled.main`
   }
 `
 
-const ThankYou = () => {
+const ThankYou = ({
+  data: {
+    businessNameData: { businessNameData },
+    bgImageData: { bgImageData },
+  },
+}) => {
   return (
-    <Layout>
-      <Seo title={`NCUC | Thank You`} />
+    <Layout page="Thank You">
       <StyledThankYou>
         <div className="thank-you-container">
           <div className="container">
             <h1>
               Thank you for contacting
               <br />
-              Website name!
+              {businessNameData.Value}
             </h1>
             <p>
               We got your request and we will get back to you as soon as soon as
               possible.
             </p>
           </div>
+          <BackgroundImage
+            image={bgImageData.Media.localFiles[0].publicURL}
+            isPlainImg
+            overlay={[
+              hexToRGB(Colors.colorPrimary, 0.7),
+              hexToRGB(Colors.colorSecondary, 0.4),
+            ]}
+          />
         </div>
       </StyledThankYou>
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    businessNameData: airtable(
+      table: { eq: "Config" }
+      data: { Label: { eq: "Business Name" } }
+    ) {
+      businessNameData: data {
+        Value
+      }
+    }
+    bgImageData: airtable(
+      table: { eq: "Home" }
+      data: { Block: { eq: "Hero" } }
+    ) {
+      bgImageData: data {
+        Media {
+          localFiles {
+            publicURL
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ThankYou

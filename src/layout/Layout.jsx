@@ -1,49 +1,50 @@
-import React, { useContext } from "react"
+import React /*, { useContext }*/ from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import AppContext from "../context/AppContext"
-import LocationBanner from "./LocationBanner"
-import Navbar from "./Navbar"
-import MobileNavbar from "./MobileNavbar"
 import Footer from "./Footer"
-import AlertMessage from "../components/AlertMessage"
-import GallerySection from "./GallerySection"
-import Map from "../components/Map"
-import FooterLogoStripe from "../components/FooterLogoStripe"
 import MonarchyStripe from "../components/MonarchyStripe"
 import ImagesBlock from "../components/ImagesBlock"
 import TemporaryNavbar from "./TemporaryNavbar"
 import TemporaryMobileNavbar from "./TemporaryMobileNavbar"
 import Seo from "../components/Seo"
 
-function organizeMenu(categoriesData) {
-  const categories = new Set()
-  const organizedMenuData = {}
+//import AppContext from "../context/AppContext"
+// import LocationBanner from "./LocationBanner"
+// import Navbar from "./Navbar"
+// import MobileNavbar from "./MobileNavbar"
+// import AlertMessage from "../components/AlertMessage"
+// import GallerySection from "./GallerySection"
+// import Map from "../components/Map"
+// import FooterLogoStripe from "../components/FooterLogoStripe"
 
-  categoriesData.forEach(category => {
-    if (category.data.Parent === "Logo") return
-    categories.add(category.data.Parent)
-  })
+// function organizeMenu(categoriesData) {
+//   const categories = new Set()
+//   const organizedMenuData = {}
 
-  categories.forEach(category => {
-    organizedMenuData[category] = []
-  })
+//   categoriesData.forEach(category => {
+//     if (category.data.Parent === "Logo") return
+//     categories.add(category.data.Parent)
+//   })
 
-  categoriesData.forEach(navItem => {
-    if (navItem.data.Parent === "Logo") return
-    organizedMenuData[navItem.data.Parent].push({
-      link: navItem.data.Permalink,
-      name: navItem.data.Child,
-      category: navItem.data.Parent,
-    })
-  })
+//   categories.forEach(category => {
+//     organizedMenuData[category] = []
+//   })
 
-  const noLogoCategoriesData = categoriesData.filter(
-    item => item.data.Parent !== "Logo"
-  )
+//   categoriesData.forEach(navItem => {
+//     if (navItem.data.Parent === "Logo") return
+//     organizedMenuData[navItem.data.Parent].push({
+//       link: navItem.data.Permalink,
+//       name: navItem.data.Child,
+//       category: navItem.data.Parent,
+//     })
+//   })
 
-  return { categories: [...categories], menuData: noLogoCategoriesData }
-}
+//   const noLogoCategoriesData = categoriesData.filter(
+//     item => item.data.Parent !== "Logo"
+//   )
+
+//   return { categories: [...categories], menuData: noLogoCategoriesData }
+// }
 
 const Layout = ({ children, page }) => {
   // const {
@@ -68,7 +69,7 @@ const Layout = ({ children, page }) => {
     lightLogoData: { lightLogoData },
   } = useStaticQuery(query)
 
-  const { alertState, setAlertState } = useContext(AppContext)
+  //const { alertState, setAlertState } = useContext(AppContext)
 
   const temporaryLinks = [
     { text: "SERVICES", link: "#services" },

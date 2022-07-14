@@ -152,12 +152,14 @@ const IntroSection = ({
   padding,
   theme,
   noPaddingTop,
+  className,
 }) => {
   return (
     <StyledIntroSection
       padding={padding}
       theme={theme}
       noPaddingTop={noPaddingTop}
+      className={className || ""}
     >
       {superheading && <h3 className="superheading">{superheading}</h3>}
       <h2 className="heading">{heading}</h2>

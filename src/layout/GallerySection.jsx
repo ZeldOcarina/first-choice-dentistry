@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import IntroSection from "../components/IntroSection"
+//import IntroSection from "../components/IntroSection"
 //import { graphql, useStaticQuery } from "gatsby"
-import SwiperComponent from "../components/SwiperComponent"
+//import SwiperComponent from "../components/SwiperComponent"
 
 const StyledGallerySection = styled.section`
   padding-bottom: 20px;

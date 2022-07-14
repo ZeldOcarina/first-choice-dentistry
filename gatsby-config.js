@@ -35,6 +35,10 @@ module.exports = {
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Sitemap` // Sitemap
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
             mapping: { Media: `fileNode` },
             tableName: `Home`
           },
@@ -43,6 +47,15 @@ module.exports = {
             mapping: { Media: `fileNode` },
             tableName: `Footer (Global)`
           },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Privacy Policy`
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Terms of Use`
+          },
+
         ],
       },
     },
@@ -68,36 +81,36 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-N569DMM",
+    // {
+    //   resolve: "gatsby-plugin-google-tagmanager",
+    //   options: {
+    //     id: "GTM-N569DMM",
 
-        // Include GTM in development.
-        //
-        // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false,
+    //     // Include GTM in development.
+    //     //
+    //     // Defaults to false meaning GTM will only be loaded in production.
+    //     includeInDevelopment: false,
 
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        //
-        // Defaults to null
-        defaultDataLayer: { platform: "gatsby" },
+    //     // datalayer to be set before GTM is loaded
+    //     // should be an object or a function that is executed in the browser
+    //     //
+    //     // Defaults to null
+    //     defaultDataLayer: { platform: "gatsby" },
 
-        // Specify optional GTM environment details.
-        // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
-        // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
-        //dataLayerName: "GTM-NKBGQLK",
+    //     // Specify optional GTM environment details.
+    //     // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+    //     // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+    //     //dataLayerName: "GTM-NKBGQLK",
 
-        // Name of the event that is triggered
-        // on every Gatsby route change.
-        //
-        // Defaults to gatsby-route-change
-        routeChangeEventName: "gatsby-route-change",
-        // Defaults to false
-        enableWebVitalsTracking: true,
-      },
-    },
+    //     // Name of the event that is triggered
+    //     // on every Gatsby route change.
+    //     //
+    //     // Defaults to gatsby-route-change
+    //     routeChangeEventName: "gatsby-route-change",
+    //     // Defaults to false
+    //     enableWebVitalsTracking: true,
+    //   },
+    // },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-styled-components`,

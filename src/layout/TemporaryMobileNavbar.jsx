@@ -1,7 +1,6 @@
 import React, { useContext } from "react"
 import styled, { css } from "styled-components"
 import { MdClose } from "react-icons/md"
-import { Link } from "gatsby"
 import respond from "../styles/abstracts/mediaqueries"
 
 import AppContext from "../context/AppContext"

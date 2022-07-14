@@ -19,6 +19,8 @@ app.post("/api/submit-form", async (req, res) => {
     try {
         const lead = await Lead.create(req.body);
 
+        console.log(lead);
+
         await sendEmail({
             to: "mattia@monarchy.io",
             subject: "We have a new contact request from the website!",
@@ -35,7 +37,7 @@ app.post("/api/submit-form", async (req, res) => {
 
 mongoose
     .connect(
-        `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@adyproduction.5cosb.mongodb.net/ncuc-db?retryWrites=true&w=majority`
+        `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@adyproduction.5cosb.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
     )
     .then(() => {
         console.log("DB Connection successful");
@@ -45,6 +47,6 @@ mongoose
         throw err;
     });
 
-app.listen(3000, () => {
-    console.log("Server listening on port 3000");
+app.listen(3002, () => {
+    console.log("Server listening on port 3002");
 })

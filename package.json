@@ -70,7 +70,7 @@
     "build": "gatsby build",
     "start:dev": "npm-run-all -p dev:*",
     "dev:frontend": "gatsby develop",
-    "dev:backend": "nodemon server/app.js",
+    "dev:backend": "nodemon backend/app.js",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",

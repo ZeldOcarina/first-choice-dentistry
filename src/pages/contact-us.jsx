@@ -3,7 +3,6 @@ import styled, { css } from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../layout/Layout"
-import Seo from "../components/Seo"
 import Form from "../components/form/Form"
 import respond from "../styles/abstracts/mediaqueries"
 
