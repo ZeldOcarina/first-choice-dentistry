@@ -86,7 +86,7 @@ const StyledFooter = styled.footer`
   }
 `
 
-const Footer = ({ quickLinks, locationData, socialLinks }) => {
+const Footer = ({ quickLinks, locationData, socialLinks, businessName }) => {
   const { isiPhone12 } = useContext(AppContext)
   const phoneString = locationData.nodes.find(
     item => item.data.Label === "Phone"
@@ -124,7 +124,10 @@ const Footer = ({ quickLinks, locationData, socialLinks }) => {
           <a href={`tel:${telLink}`}>{phoneString}</a>
           <p>{address.split("107")[0]}</p>
           <p>{address.split("107")[1]}</p>
-          <p>&copy; {new Date().getFullYear()} NCUC. All Rights Reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()}&nbsp;{businessName}.<br />
+            All Rights Reserved.
+          </p>
           <p className="copyright">
             <Link to="/privacy-policy">Privacy Policy</Link>{" "}
             {isiPhone12 ? "" : " | "}

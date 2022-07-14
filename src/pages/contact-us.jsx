@@ -1,10 +1,11 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../layout/Layout"
 import Seo from "../components/Seo"
 import Form from "../components/form/Form"
+import respond from "../styles/abstracts/mediaqueries"
 
 const StyledContactUs = styled.main`
   background-color: var(--background-dark);
@@ -24,6 +25,35 @@ const StyledContactUs = styled.main`
   .form-container {
     padding-top: 13rem;
     padding-bottom: 10rem;
+    max-width: 50%;
+
+    ${respond(
+      924,
+      css`
+        max-width: 80%;
+        padding-bottom: 0;
+      `
+    )}
+    ${respond(
+      834,
+      css`
+        max-width: 70%;
+        padding-bottom: 0;
+      `
+    )}
+    ${respond(
+      500,
+      css`
+        max-width: 95%;
+        padding-bottom: 0;
+      `
+    )}
+    ${respond(
+      "big-desktop",
+      css`
+        max-width: 45%;
+      `
+    )}
   }
 `
 
@@ -32,14 +62,13 @@ const ContactUs = ({
     servicesData: { servicesData },
   },
 }) => {
-  console.log(servicesData)
+  //console.log(servicesData)
   const services = servicesData.map(({ data: { Heading } }) => {
     return Heading
   })
 
   return (
-    <Layout>
-      <Seo title="Airtable Gatsby Starter" />
+    <Layout page="Contact Us">
       <StyledContactUs>
         <div className="container form-container">
           <h1>Contact us</h1>

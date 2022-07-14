@@ -19,6 +19,13 @@ const StyledImagesBlock = styled.section`
       width: 100%;
     }
   }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+  }
 `
 
 const ImagesBlock = ({ heading, subheading, superheading, images }) => {
@@ -29,7 +36,7 @@ const ImagesBlock = ({ heading, subheading, superheading, images }) => {
         subheading={subheading}
         superheading={superheading}
       ></IntroSection>
-      <GridContainer columnWidth={"31rem"}>
+      <div className="grid">
         {images.map(({ id, data: { Media, AltText } }) => {
           return (
             <div className="image-container" key={id}>
@@ -37,7 +44,7 @@ const ImagesBlock = ({ heading, subheading, superheading, images }) => {
             </div>
           )
         })}
-      </GridContainer>
+      </div>
     </StyledImagesBlock>
   )
 }

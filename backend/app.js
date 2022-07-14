@@ -19,8 +19,6 @@ app.post("/api/submit-form", async (req, res) => {
     try {
         const lead = await Lead.create(req.body);
 
-        console.log(lead);
-
         await sendEmail({
             to: "mattia@monarchy.io",
             subject: "We have a new contact request from the website!",

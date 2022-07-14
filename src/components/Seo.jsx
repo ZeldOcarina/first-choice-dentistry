@@ -10,7 +10,7 @@ const Seo = ({ title, description, language }) => {
 
   return (
     <Helmet htmlAttributes={{ lang: language || "en" }}>
-      <title>Gatsby AirTable Starter</title>
+      <title>{title}</title>
       <link rel="stylesheet" href="https://use.typekit.net/dzp2jss.css" />
 
       {/* <title>{title || metaTitle}</title>
@@ -35,23 +35,22 @@ const Seo = ({ title, description, language }) => {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/apple-touch-icon.png?v=2"
+        href="/apple-touch-icon.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/favicon-32x32.png?v=2"
+        href="/favicon-32x32.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/favicon-16x16.png?v=2"
+        href="/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
-      <meta name="msapplication-TileColor" content="#f9fcff" />
+      <meta name="msapplication-TileColor" content="#00a300" />
       <meta name="theme-color" content="#ffffff" />
       {/* END FAVICONS */}
     </Helmet>

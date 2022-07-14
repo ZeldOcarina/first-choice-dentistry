@@ -1,5 +1,6 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import respond from "../styles/abstracts/mediaqueries"
 
 import IntroSection from "./IntroSection"
 import CardsContainer from "./CardsContainer"
@@ -10,6 +11,13 @@ const StyledCardsSection = styled.section`
 
   .container {
     margin-bottom: 10rem;
+
+    ${respond(
+      500,
+      css`
+        margin-bottom: 0;
+      `
+    )}
   }
 `
 

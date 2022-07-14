@@ -10,6 +10,14 @@ const StyledFaqs = styled.section`
   ${({ noPaddingTop }) => {
     return noPaddingTop && "padding-top: 0;"
   }}
+
+  .faqs-container {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `
 
 function Faqs({ faqs, superheading, heading, subheading, noPaddingTop }) {
@@ -24,11 +32,11 @@ function Faqs({ faqs, superheading, heading, subheading, noPaddingTop }) {
             noPaddingTop={noPaddingTop}
           ></IntroSection>
         </div>
-        <GridContainer rowGap={0} columnGap={0}>
+        <div className="faqs-container">
           {faqs.map(({ id, data: { Heading: question, Copy: answer } }) => (
             <FaqItem {...{ question, answer }} key={id} />
           ))}
-        </GridContainer>
+        </div>
       </>
     </StyledFaqs>
   )

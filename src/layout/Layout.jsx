@@ -14,6 +14,7 @@ import MonarchyStripe from "../components/MonarchyStripe"
 import ImagesBlock from "../components/ImagesBlock"
 import TemporaryNavbar from "./TemporaryNavbar"
 import TemporaryMobileNavbar from "./TemporaryMobileNavbar"
+import Seo from "../components/Seo"
 
 function organizeMenu(categoriesData) {
   const categories = new Set()
@@ -44,7 +45,7 @@ function organizeMenu(categoriesData) {
   return { categories: [...categories], menuData: noLogoCategoriesData }
 }
 
-const Layout = ({ children, innerLayout }) => {
+const Layout = ({ children, page }) => {
   // const {
   //   locationData,
   //   socialLinks,
@@ -59,6 +60,7 @@ const Layout = ({ children, innerLayout }) => {
   // } = useStaticQuery(query)
 
   const {
+    businessNameData: { businessNameData },
     imagesTitleData: { imagesTitleData },
     imagesItemsData: { imagesItemsData },
     locationData,
@@ -92,6 +94,11 @@ const Layout = ({ children, innerLayout }) => {
       /> */}
 
       {/* <Navbar innerLayout={innerLayout} menuData={menuData} /> */}
+      <Seo
+        title={
+          page ? `${businessNameData.Value} | ${page}` : businessNameData.Value
+        }
+      />
       <TemporaryNavbar
         logo={lightLogoData.File.localFiles[0].publicURL}
         links={temporaryLinks}
@@ -107,6 +114,7 @@ const Layout = ({ children, innerLayout }) => {
         // quickLinks={quickLinksData}
         locationData={locationData}
         socialLinks={socialLinks}
+        businessName={businessNameData.Value}
       />
       <MonarchyStripe />
       <TemporaryMobileNavbar links={temporaryLinks} />
@@ -196,6 +204,14 @@ const query = graphql`
             publicURL
           }
         }
+      }
+    }
+    businessNameData: airtable(
+      table: { eq: "Config" }
+      data: { Label: { eq: "Business Name" } }
+    ) {
+      businessNameData: data {
+        Value
       }
     }
   }

@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../layout/Layout"
-import Seo from "../components/Seo"
 import Hero from "../components/Hero"
 import CardsSection from "../components/CardsSection"
 import TextSection from "../components/TextSection"
@@ -31,7 +30,6 @@ const IndexPage = ({
 }) => {
   return (
     <Layout>
-      <Seo title="Airtable Gatsby Starter" />
       <StyledIndex>
         <Hero {...heroData} />
         <CardsSection

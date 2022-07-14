@@ -6,6 +6,7 @@ import PropTypes from "prop-types"
 const StyledIntroSection = styled.section`
   text-align: center;
   margin: 0 auto var(--section-gutter) auto;
+  max-width: 93%;
   padding-bottom: ${({ padding }) => {
     return padding || padding === 0 ? `${padding}rem` : `var(--gutter)`
   }};
@@ -26,6 +27,18 @@ const StyledIntroSection = styled.section`
     font-size: var(--superheading-font-size);
 
     ${respond(
+      1366,
+      css`
+        font-size: 3.5rem;
+      `
+    )}
+    ${respond(
+      1280,
+      css`
+        font-size: 3rem;
+      `
+    )}
+    ${respond(
       "iphone-8-plus-land",
       css`
         font-size: 1.8rem;
@@ -34,7 +47,7 @@ const StyledIntroSection = styled.section`
     ${respond(
       "phone-port",
       css`
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       `
     )}
     ${respond(
@@ -63,6 +76,18 @@ const StyledIntroSection = styled.section`
     width: 85%;
 
     ${respond(
+      1366,
+      css`
+        font-size: 4.5rem;
+      `
+    )}
+    ${respond(
+      1280,
+      css`
+        font-size: 4rem;
+      `
+    )}
+    ${respond(
       "iphone-8-plus-land",
       css`
         font-size: 3rem;
@@ -79,7 +104,7 @@ const StyledIntroSection = styled.section`
       "phone-port",
       css`
         width: 100%;
-        font-size: 2.5rem;
+        font-size: 3.5rem;
         margin-top: 1rem;
       `
     )}
@@ -108,7 +133,7 @@ const StyledIntroSection = styled.section`
     ${respond(
       "phone-port",
       css`
-        font-size: 1.3rem;
+        font-size: 1.6rem;
       `
     )}
     ${respond(

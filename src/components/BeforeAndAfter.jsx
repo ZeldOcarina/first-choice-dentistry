@@ -47,7 +47,7 @@ const StyledBeforeAndAfter = styled.section`
 `
 
 const BeforeAndAfter = ({ superheading, heading, subheading, images }) => {
-  console.log(images)
+  //console.log(images)
   return (
     <StyledBeforeAndAfter id="before-and-after">
       <IntroSection
@@ -60,7 +60,7 @@ const BeforeAndAfter = ({ superheading, heading, subheading, images }) => {
           const beforeImage = data.Media.localFiles[0].publicURL
           const afterImage = data.Media.localFiles[1].publicURL
 
-          console.log(data)
+          //console.log(data)
           return (
             <article className="slider-container" key={id}>
               <ImgComparisonSlider className="slider">

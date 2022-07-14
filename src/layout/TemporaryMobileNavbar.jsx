@@ -91,6 +91,19 @@ const TemporaryMobileNavbar = ({ links }) => {
   return (
     <StyledTemporaryMobileNavbar open={isMobileMenuOpen}>
       <ul className="mobile-navbar__top-ul">
+        <div className="mb-3">
+          <Button
+            type="internal"
+            url="/contact-us"
+            color="primary"
+            onClick={() => {
+              setIsMobileMenuOpen(false)
+            }}
+          >
+            Contact Us
+          </Button>
+        </div>
+
         {links.map((link, i) => {
           return (
             <li className="mobile-navbar__top-li" key={i}>

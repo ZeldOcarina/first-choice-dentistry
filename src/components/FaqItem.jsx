@@ -1,11 +1,13 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import ReactMarkdown from "react-markdown"
+import respond from "../styles/abstracts/mediaqueries"
 
 const StyledFaqItem = styled.article`
   border: 1px solid var(--grey500);
   padding: 4rem 3.5rem;
   min-height: 55rem;
+  max-width: 55rem;
 
   h5 {
     text-align: center;
@@ -17,6 +19,11 @@ const StyledFaqItem = styled.article`
     font-weight: 700;
     height: 9rem;
     margin-bottom: var(--gutter);
+
+    ${(respond(500),
+    css`
+      height: 12rem;
+    `)}
   }
 `
 

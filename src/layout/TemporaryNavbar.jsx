@@ -3,6 +3,7 @@ import styled, { css } from "styled-components"
 import respond from "../styles/abstracts/mediaqueries"
 import { Link } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
+import Button from "../components/Button"
 
 import AppContext from "../context/AppContext"
 
@@ -15,8 +16,15 @@ const Wrapper = styled.nav`
   height: 10rem;
   font-size: 1.6rem;
   transition: all 0.3s ease-in-out;
-  background-color: transparent;
+  background-color: ${({ scrolled }) =>
+    scrolled ? "var(--color-tertiary)" : "transparent"};
 
+  ${respond(
+    1280,
+    css`
+      height: 8rem;
+    `
+  )}
   ${respond(
     "tab-land",
     css`
@@ -183,6 +191,7 @@ const Wrapper = styled.nav`
 
   .logo {
     width: 25rem;
+    display: block;
 
     ${respond(
       "iphone-12-pro-land",
@@ -218,12 +227,43 @@ const Wrapper = styled.nav`
 
   .button {
     margin-right: 15rem;
-    cursor: pointer;
-    background-color: var(--color-secondary);
-    color: var(--white);
-    border: none;
-    border-radius: 30px;
-    padding: 1.5rem 3rem;
+
+    ${respond(
+      1280,
+      css`
+        padding: 1rem 2.5rem;
+      `
+    )}
+    ${respond(
+      1194,
+      css`
+        margin-right: 4rem;
+      `
+    )}
+    ${respond(
+      1112,
+      css`
+        margin-right: 8rem;
+      `
+    )}
+    ${respond(
+      926,
+      css`
+        margin-right: 10rem;
+      `
+    )}
+    ${respond(
+      500,
+      css`
+        display: none;
+      `
+    )}
+    ${respond(
+      "big-desktop",
+      css`
+        margin-right: 5rem;
+      `
+    )}
   }
 `
 
@@ -233,12 +273,18 @@ const TemporaryNavbar = ({ innerPage, innerLayout, logo }) => {
     useContext(AppContext)
 
   useEffect(() => {
-    // Make navbar fixed on scroll
-    document.addEventListener("scroll", () => {
+    const handleScroll = () => {
       window.scrollY === 0
         ? setIsNavbarScrolled(false)
         : setIsNavbarScrolled(true)
-    })
+    }
+
+    // Make navbar fixed on scroll
+    document.addEventListener("scroll", handleScroll)
+    return () => {
+      // Clean up scroll listener
+      document.removeEventListener("scroll", handleScroll)
+    }
   })
 
   return (
@@ -255,9 +301,9 @@ const TemporaryNavbar = ({ innerPage, innerLayout, logo }) => {
               : "links-container"
           }
         ></div>
-        <Link className="button" to="/contact-us">
+        <Button className="button" url="/contact-us" type="internal">
           Contact Us
-        </Link>
+        </Button>
         <GiHamburgerMenu
           className="mobile-menu-activator"
           onClick={() => {

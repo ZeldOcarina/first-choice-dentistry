@@ -1,5 +1,6 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import respond from "../styles/abstracts/mediaqueries"
 
 const StyledGridContainer = styled.div`
   display: grid;
@@ -14,6 +15,21 @@ const StyledGridContainer = styled.div`
   row-gap: ${({ rowGap }) => (rowGap || rowGap === 0 ? rowGap : "2rem")};
   column-gap: ${({ columnGap }) =>
     columnGap || columnGap === 0 ? columnGap : "2rem"};
+
+  ${respond(
+    1700,
+    css`
+      ${({ columnWidth }) => {
+        return columnWidth
+          ? css`
+              grid-template-columns: repeat(2, ${columnWidth});
+            `
+          : css`
+              grid-template-columns: repeat(2, 1fr);
+            `
+      }}
+    `
+  )}
 `
 
 const GridContainer = ({ children, rowGap, columnGap, columnWidth }) => {

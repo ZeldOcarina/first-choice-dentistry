@@ -5,73 +5,25 @@ import PropTypes from "prop-types"
 import respond from "../styles/abstracts/mediaqueries"
 
 const buttonCss = css`
-  display: block;
-  color: var(--white);
-  width: ${({ width }) => (width ? width : css`35rem !important`)};
-  padding: 2rem 0;
-  border: none;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 400;
-
-  ${respond(
-    "big-laptop",
-    css`
-      width: 22rem !important;
-    `
-  )}
-  ${respond(
-    "big-desktop",
-    css`
-      font-size: 3.5rem;
-      width: 53rem !important;
-      padding: 2rem;
-    `
-  )}
+  a {
+    cursor: pointer;
+    background-color: var(--color-secondary);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    padding: 0;
+    display: block;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
 `
 
-const navButtonCss = css`
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 68%;
-  width: 21.5rem;
-
-  ${respond(
-    "big-desktop",
-    css`
-      width: 40rem;
-      font-size: 2rem;
-    `
-  )}
-`
-
-const mobileNavButtonCss = css`
-  min-width: max-content;
-  margin: 0 auto;
-  height: 5rem;
-  width: 20rem;
-  font-size: 1.6rem;
-`
-
-const StyledButton = styled.button`
+const StyledButton = styled.div`
   ${buttonCss}
-  padding: 0;
   background-color: ${({ color }) =>
     css`
       ${color}
     `};
-  ${({ navButton }) => navButton && navButtonCss};
-  ${({ mobileNavButton }) => mobileNavButton && mobileNavButtonCss};
-
-  .button {
-    ${buttonCss}
-    background-color: ${({ color }) =>
-      css`
-        ${color}
-      `};
-  }
 `
 
 function setAs(type) {
@@ -92,7 +44,8 @@ function setAs(type) {
  * @param {string} useImperativeHandle(
  * @param {function} children,
  * @param {string} color,
- * @param {string} width,
+ * @param {string} className
+ * @param {Function} onClick
  ***********************/
 
 const Button = ({
@@ -100,18 +53,20 @@ const Button = ({
   url,
   children,
   color,
-  width,
   navButton,
   mobileNavButton,
+  className,
+  onClick,
 }) => {
   return (
     <StyledButton
       as={setAs(type)}
       href={type !== "internal" ? url : undefined}
       color={color}
-      width={width || undefined}
       navButton={navButton}
       mobileNavButton={mobileNavButton}
+      className={className || ""}
+      onClick={onClick || undefined}
     >
       {type === "internal" ? (
         <Link
@@ -123,7 +78,6 @@ const Button = ({
               color === "primary"
                 ? "var(--color-primary)"
                 : "var(--color-secondary",
-            width: width ? width : "max-content",
           }}
         >
           {children}
@@ -141,6 +95,7 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   width: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default Button
