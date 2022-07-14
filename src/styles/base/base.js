@@ -65,7 +65,7 @@ h4,
 h5,
 h6 {
   font-family: var(--title-font);
-  font-weight: 300;
+  font-weight: 700;
   color: var(--black);
 
   ${respond(

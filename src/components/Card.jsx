@@ -10,7 +10,7 @@ const StyledCard = styled.article`
   position: relative;
   color: var(--white);
   font-weight: 300;
-  min-height: 65rem;
+  min-height: 68rem;
 
   ${respond(
     "big-desktop",
@@ -23,7 +23,7 @@ const StyledCard = styled.article`
   h5 {
     color: var(--white);
     text-transform: uppercase;
-    font-size: 2.8rem;
+    font-size: var(--title-font-size);
     letter-spacing: 1px;
     text-align: center;
     margin-bottom: var(--gutter);
@@ -32,6 +32,8 @@ const StyledCard = styled.article`
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
+    font-family: var(--title-font);
 
     ${respond(
       "big-desktop",
@@ -43,7 +45,6 @@ const StyledCard = styled.article`
 
   .link {
     color: var(--color-secondary);
-    font-weight: 500;
     text-transform: uppercase;
     display: block;
     position: absolute;
@@ -71,10 +72,6 @@ const StyledCard = styled.article`
     transform: translate(-50%, -50%);
     z-index: 100;
     width: 85%;
-
-    h5 {
-      font-weight: 500;
-    }
   }
 `
 

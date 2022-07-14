@@ -43,13 +43,17 @@ export default createGlobalStyle`
     --bold: 700;
 
     // FONT-SIZES
-    --basic-font-size: 1.8rem;
+    --basic-font-size: 2.5rem;
     --mobile-font-size: 1.5rem;
 
     --big-title: 4.8rem;
-    --title-font-size: 2.8rem;
+    --title-font-size: 3.5rem;
     --mobile-title-font-size: 3rem;
     --small-title: 2.5rem;
     --big-text: 2rem;
+
+    --superheading-font-size: 3.5rem;
+    --heading-font-size: 6rem;
+    --subheading-font-size: 2.5rem;
   }
 `

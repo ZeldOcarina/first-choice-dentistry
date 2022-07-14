@@ -30,7 +30,7 @@ const ImagesBlock = ({ heading, subheading, superheading, images }) => {
         subheading={subheading}
         superheading={superheading}
       ></IntroSection>
-      <GridContainer>
+      <GridContainer columnWidth={"31rem"}>
         {images.map(({ id, data: { Media, AltText } }) => {
           return (
             <div className="image-container" key={id}>

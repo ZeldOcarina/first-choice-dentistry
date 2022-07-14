@@ -14,7 +14,7 @@ const StyledHero = styled.header`
     position: relative;
     z-index: 100;
     text-align: center;
-    max-width: 60%;
+    max-width: 100%;
 
     h1,
     h2 {
@@ -26,12 +26,12 @@ const StyledHero = styled.header`
       letter-spacing: 5px;
       text-transform: uppercase;
       margin-bottom: 1rem;
+      font-weight: bold;
     }
 
     h2 {
       font-family: var(--body-font);
       color: #cecece;
-      width: 68%;
       margin: 0 auto;
     }
 
@@ -57,7 +57,7 @@ const Hero = ({ Media, SuperHeading, Heading, AlternativeText }) => {
         image={Media.localFiles[0].publicURL}
         alt={AlternativeText}
         isPlainImg
-        overlay={"rgba(0, 0, 0, 0.238)"}
+        overlay={"rgba(0, 0, 0, 0.2)"}
       />
     </StyledHero>
   )

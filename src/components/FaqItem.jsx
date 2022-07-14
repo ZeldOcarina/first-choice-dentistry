@@ -4,17 +4,18 @@ import ReactMarkdown from "react-markdown"
 
 const StyledFaqItem = styled.article`
   border: 1px solid var(--grey500);
-  padding: 4rem 2rem;
-  min-height: 50rem;
+  padding: 4rem 3.5rem;
+  min-height: 55rem;
 
   h5 {
     text-align: center;
     text-transform: uppercase;
     line-height: 1.3;
-    font-size: 2.5rem;
+    font-size: var(--title-font-size);
+    font-family: var(--title-font);
     color: #666666;
-    font-weight: 500;
-    height: 7rem;
+    font-weight: 700;
+    height: 9rem;
     margin-bottom: var(--gutter);
   }
 `

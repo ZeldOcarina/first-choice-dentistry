@@ -4,10 +4,6 @@
   "description": "A new Gatsby website for First Choice Dentistry",
   "version": "0.1.0",
   "author": "Mattia Rasulo <mattia@monarchy.io>",
-  "engines": {
-    "npm": "8.12.1",
-    "node": "16"
-  },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.14.3",
     "@img-comparison-slider/react": "^7.6.0",

@@ -18,11 +18,12 @@ const StyledIntroSection = styled.section`
     `
   )}
 
-  h3 {
+  .superheading {
     color: var(--color-secondary);
+    font-family: var(--body-font);
     text-transform: uppercase;
     text-align: center;
-    font-size: 2rem;
+    font-size: var(--superheading-font-size);
 
     ${respond(
       "iphone-8-plus-land",
@@ -44,19 +45,19 @@ const StyledIntroSection = styled.section`
     )}
   }
 
-  h2,
-  p {
+  .heading,
+  .subheading {
     margin-left: auto;
     margin-right: auto;
     color: ${({ theme }) =>
       theme && theme === "light" ? css`var(--white)` : css`var(--grey500)`};
   }
 
-  h2 {
+  .heading {
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 700;
     line-height: 1.5;
-    font-size: 3.5rem;
+    font-size: var(--heading-font-size);
 
     margin: var(--gutter) auto;
     width: 85%;
@@ -90,9 +91,9 @@ const StyledIntroSection = styled.section`
     )}
   }
 
-  p {
+  .subheading {
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: var(--subheading-font-size);
     margin: 0 auto;
     text-align: left;
     width: 84%;
@@ -133,9 +134,9 @@ const IntroSection = ({
       theme={theme}
       noPaddingTop={noPaddingTop}
     >
-      {superheading && <h3>{superheading}</h3>}
-      <h2>{heading}</h2>
-      <p>{subheading}</p>
+      {superheading && <h3 className="superheading">{superheading}</h3>}
+      <h2 className="heading">{heading}</h2>
+      <p className="subheading">{subheading}</p>
     </StyledIntroSection>
   )
 }

@@ -11,6 +11,8 @@ const StyledMonarchyStripe = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  color: var(--grey);
+  font-size: 2.2rem;
 `
 
 const MonarchyStripe = () => {
