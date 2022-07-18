@@ -22,7 +22,7 @@ app.post("/api/submit-form", async (req, res) => {
         console.log(lead);
 
         await sendEmail({
-            to: "mattia@monarchy.io",
+            to: ["mattia@monarchy.io", process.env.RECEIPIENT_EMAIL],
             subject: "We have a new contact request from the website!",
             text: `Contact request incoming.\n\n${JSON.stringify(req.body)}`,
             html: leadHtml(lead)
