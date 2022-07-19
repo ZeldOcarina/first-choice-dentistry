@@ -23,7 +23,8 @@ const Wrapper = styled.nav`
   ${respond(
     1280,
     css`
-      height: 8rem;
+      height: auto;
+      padding-bottom: 2rem;
     `
   )}
   ${respond(
@@ -121,7 +122,7 @@ const Wrapper = styled.nav`
         justify-content: space-between;
         flex-wrap: wrap;
         justify-content: center;
-        margin-top: var(--big-gutter);
+        padding-top: 2rem;
         gap: 3rem;
       `
     )}

@@ -86,26 +86,17 @@ const StyledFooter = styled.footer`
   }
 `
 
-const Footer = ({ quickLinks, locationData, socialLinks, businessName }) => {
+const Footer = ({
+  quickLinks,
+  socialLinks,
+  businessName,
+  address,
+  cityState,
+  zipCode,
+  phone,
+  tel,
+}) => {
   const { isiPhone12 } = useContext(AppContext)
-  const phoneString = locationData.nodes.find(
-    item => item.data.Label === "Phone"
-  ).data.Value
-  const telLink = locationData.nodes.find(item => item.data.Label === "Tel:")
-    .data.Value
-  // const state = locationData.nodes.find(item => item.data.Label === "State")
-  //   .data.Value
-  // const city = locationData.nodes.find(item => item.data.Label === "City").data
-  //   .Value
-  const address = locationData.nodes.find(item => item.data.Label === "Address")
-    .data.Value
-  // const weekdays = locationData.nodes.find(
-  //   item => item.data.Label === "Weekdays"
-  // )?.data?.Value
-  // const weekends = locationData.nodes.find(
-  //   item => item.data.Label === "Weekends"
-  // ).data.Value
-
   return (
     <StyledFooter>
       <div className="container">
@@ -121,9 +112,12 @@ const Footer = ({ quickLinks, locationData, socialLinks, businessName }) => {
         </div> */}
         <div className="col-2">
           <h5>LOCATION</h5>
-          <a href={`tel:${telLink}`}>{phoneString}</a>
-          <p>{address.split("107")[0]}</p>
-          <p>{address.split("107")[1]}</p>
+          <a href={`tel:${tel}`}>{phone}</a>
+          <p>
+            {address}
+            <br />
+            {cityState}&nbsp;{zipCode}
+          </p>
           <p>
             &copy; {new Date().getFullYear()}&nbsp;{businessName}.<br />
             All Rights Reserved.

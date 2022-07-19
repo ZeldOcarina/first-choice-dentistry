@@ -69,6 +69,9 @@ const Layout = ({ children, page }) => {
     lightLogoData: { lightLogoData },
     phoneData: { phoneData },
     telData: { telData },
+    streetData: { streetData },
+    stateData: { stateData },
+    zipCodeData: { zipCodeData },
   } = useStaticQuery(query)
 
   //const { alertState, setAlertState } = useContext(AppContext)
@@ -120,6 +123,11 @@ const Layout = ({ children, page }) => {
         locationData={locationData}
         socialLinks={socialLinks}
         businessName={businessNameData.Value}
+        address={streetData.Value}
+        cityState={stateData.Value}
+        zipCode={zipCodeData.Value}
+        phone={phoneData.Value}
+        tel={telData.Value}
       />
       <MonarchyStripe />
       <TemporaryMobileNavbar
@@ -236,6 +244,30 @@ const query = graphql`
       data: { Label: { eq: "Tel:" } }
     ) {
       telData: data {
+        Value
+      }
+    }
+    streetData: airtable(
+      table: { eq: "Config" }
+      data: { Label: { eq: "Address" } }
+    ) {
+      streetData: data {
+        Value
+      }
+    }
+    stateData: airtable(
+      table: { eq: "Config" }
+      data: { Label: { eq: "City-St" } }
+    ) {
+      stateData: data {
+        Value
+      }
+    }
+    zipCodeData: airtable(
+      table: { eq: "Config" }
+      data: { Label: { eq: "Zipcode" } }
+    ) {
+      zipCodeData: data {
         Value
       }
     }
