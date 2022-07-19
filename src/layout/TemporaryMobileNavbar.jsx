@@ -9,6 +9,8 @@ import Button from "../components/Button"
 import { hexToRGB } from "../helpers/helpers"
 import { Colors } from "../styles/abstracts/abstracts"
 
+import { BsPhoneFill } from "react-icons/bs"
+
 const StyledTemporaryMobileNavbar = styled.nav`
   width: 100vw;
   position: fixed;
@@ -27,7 +29,6 @@ const StyledTemporaryMobileNavbar = styled.nav`
   z-index: 900;
 
   ${({ open }) => {
-    //console.log(open);
     return (
       open &&
       css`
@@ -82,9 +83,24 @@ const StyledTemporaryMobileNavbar = styled.nav`
       cursor: pointer;
     }
   }
+
+  .phone {
+    .phone-link {
+      color: var(--white);
+      font-size: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: var(--big-gutter);
+    }
+  }
 `
 
-const TemporaryMobileNavbar = ({ links }) => {
+// 4829 Panama Lane Suite C, Bakersfield, CA 93313
+
+const TemporaryMobileNavbar = ({ links, phone, tel }) => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useContext(AppContext)
 
   return (
@@ -99,8 +115,14 @@ const TemporaryMobileNavbar = ({ links }) => {
               setIsMobileMenuOpen(false)
             }}
           >
-            Contact Us
+            Request an Appointment
           </Button>
+          <div className="phone">
+            <a className="phone-link" href={`tel:${tel}`}>
+              <BsPhoneFill />
+              &nbsp;{phone}
+            </a>
+          </div>
         </div>
 
         {links.map((link, i) => {

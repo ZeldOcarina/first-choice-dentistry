@@ -4,6 +4,7 @@ import respond from "../styles/abstracts/mediaqueries"
 import { Link } from "gatsby"
 import { GiHamburgerMenu } from "react-icons/gi"
 import Button from "../components/Button"
+import { BsPhoneFill } from "react-icons/bs"
 
 import AppContext from "../context/AppContext"
 
@@ -112,8 +113,18 @@ const Wrapper = styled.nav`
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+
+    ${respond(
+      650,
+      css`
+        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: var(--big-gutter);
+        gap: 3rem;
+      `
+    )}
   }
 
   .links-container {
@@ -173,20 +184,10 @@ const Wrapper = styled.nav`
   }
 
   .mobile-menu-activator {
-    display: block;
     color: var(--color-secondary);
-    position: absolute;
-    right: 5%;
     width: 4rem;
     height: auto;
     cursor: pointer;
-
-    ${respond(
-      "ipad-pro-12-port",
-      css`
-        right: 10%;
-      `
-    )}
   }
 
   .logo {
@@ -225,49 +226,60 @@ const Wrapper = styled.nav`
     padding: 0;
   }
 
-  .button {
-    margin-right: 8rem;
+  .right-part {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, max-content);
+    gap: var(--big-gutter);
+    width: 100%;
+    margin-left: auto;
+    justify-content: flex-end;
 
     ${respond(
-      1280,
+      1025,
       css`
-        padding: 1rem 2.5rem;
+        grid-template-columns: repeat(2, max-content);
       `
     )}
+
+    .mobile-menu-activator {
+      ${respond(
+        650,
+        css`
+          justify-self: flex-end;
+          gap: 0;
+        `
+      )}
+    }
+
     ${respond(
-      1194,
+      650,
       css`
-        margin-right: 4rem;
+        justify-content: center;
+        //gap: 0;
       `
     )}
-    ${respond(
-      1112,
-      css`
-        margin-right: 8rem;
-      `
-    )}
-    ${respond(
-      926,
-      css`
-        margin-right: 10rem;
-      `
-    )}
-    ${respond(
-      750,
-      css`
-        display: none;
-      `
-    )}
-    ${respond(
-      "big-desktop",
-      css`
-        margin-right: 5rem;
-      `
-    )}
+
+    .phone {
+      ${respond(
+        1025,
+        css`
+          display: none;
+        `
+      )}
+      .phone-link {
+        color: var(--white);
+        font-size: 2.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
   }
 `
 
-const TemporaryNavbar = ({ innerPage, innerLayout, logo }) => {
+const TemporaryNavbar = ({ innerPage, innerLayout, logo, phone, tel }) => {
   const [isNavbarScrolled, setIsNavbarScrolled] = useState(false)
   const { isMobileMenuOpen, setIsMobileMenuOpen, isBigLaptop } =
     useContext(AppContext)
@@ -293,23 +305,24 @@ const TemporaryNavbar = ({ innerPage, innerLayout, logo }) => {
         <Link to="/">
           <img src={logo} alt="First Choice Dentistry Logo" className="logo" />
         </Link>
+        <div className="right-part">
+          <div className="phone">
+            <a className="phone-link" href={`tel:${tel}`}>
+              <BsPhoneFill />
+              &nbsp;{phone}
+            </a>
+          </div>
+          <Button className="button" url="/contact-us" type="internal">
+            Request an Appointment
+          </Button>
 
-        <div
-          className={
-            innerPage
-              ? "links-container links-container--dark"
-              : "links-container"
-          }
-        ></div>
-        <Button className="button" url="/contact-us" type="internal">
-          Contact Us
-        </Button>
-        <GiHamburgerMenu
-          className="mobile-menu-activator"
-          onClick={() => {
-            setIsMobileMenuOpen(!isMobileMenuOpen)
-          }}
-        />
+          <GiHamburgerMenu
+            className="mobile-menu-activator"
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen)
+            }}
+          />
+        </div>
       </div>
     </Wrapper>
   )

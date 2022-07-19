@@ -85,7 +85,7 @@ const Card = ({ copy, heading, image, alternativeText, linkLabel, link }) => {
       setTimer(null)
     }
     return () => {}
-  }, [alphaValue])
+  }, [alphaValue, timer])
 
   const handleMouseEnter = () => {
     const timer = setInterval(() => {

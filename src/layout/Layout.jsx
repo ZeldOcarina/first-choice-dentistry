@@ -67,6 +67,8 @@ const Layout = ({ children, page }) => {
     locationData,
     socialLinks,
     lightLogoData: { lightLogoData },
+    phoneData: { phoneData },
+    telData: { telData },
   } = useStaticQuery(query)
 
   //const { alertState, setAlertState } = useContext(AppContext)
@@ -103,6 +105,8 @@ const Layout = ({ children, page }) => {
       <TemporaryNavbar
         logo={lightLogoData.File.localFiles[0].publicURL}
         links={temporaryLinks}
+        phone={phoneData.Value}
+        tel={telData.Value}
       />
 
       {children}
@@ -118,7 +122,11 @@ const Layout = ({ children, page }) => {
         businessName={businessNameData.Value}
       />
       <MonarchyStripe />
-      <TemporaryMobileNavbar links={temporaryLinks} />
+      <TemporaryMobileNavbar
+        links={temporaryLinks}
+        phone={phoneData.Value}
+        tel={telData.Value}
+      />
       {/*<GallerySection />
       <Map lat={lat} long={long} mapName="map" />
       <FooterLogoStripe
@@ -212,6 +220,22 @@ const query = graphql`
       data: { Label: { eq: "Business Name" } }
     ) {
       businessNameData: data {
+        Value
+      }
+    }
+    phoneData: airtable(
+      table: { eq: "Config" }
+      data: { Label: { eq: "Phone" } }
+    ) {
+      phoneData: data {
+        Value
+      }
+    }
+    telData: airtable(
+      table: { eq: "Config" }
+      data: { Label: { eq: "Tel:" } }
+    ) {
+      telData: data {
         Value
       }
     }

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import IntroSection from "./IntroSection"
-import GridContainer from "./GridContainer"
+//import GridContainer from "./GridContainer"
 
 const StyledImagesBlock = styled.section`
   background-color: var(--background-dark);

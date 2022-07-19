@@ -3,7 +3,7 @@ import styled from "styled-components"
 import FaqItem from "./FaqItem"
 
 import IntroSection from "./IntroSection"
-import GridContainer from "./GridContainer"
+//import GridContainer from "./GridContainer"
 
 const StyledFaqs = styled.section`
   background-color: var(--background-dark);

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import IntroSection from "./IntroSection"
 import { ImgComparisonSlider } from "@img-comparison-slider/react"
 
-import handle from "../images/icons/handle.svg"
+//import handle from "../images/icons/handle.svg"
 
 const StyledBeforeAndAfter = styled.section`
   .slider {

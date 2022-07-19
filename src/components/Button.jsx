@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 import styled, { css } from "styled-components"
 import PropTypes from "prop-types"
-import respond from "../styles/abstracts/mediaqueries"
+//import respond from "../styles/abstracts/mediaqueries"
 
 const buttonCss = css`
   a {
